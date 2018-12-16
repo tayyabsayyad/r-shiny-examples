@@ -46,13 +46,28 @@
 }).addTo(mymap);
 
 
-
 var polygon = L.polygon([
     [19.072158, 72.854745],
     [19.072257, 72.858330],
     [19.068969, 72.857023]
 ]).addTo(mymap);
 
+marker.bindPopup("<b>Hello world!</b><br> Don Bosco Institute of Technology").openPopup();
+circle.bindPopup("Hey see this .");
+polygon.bindPopup("I am MU.");
+
+
+var popup = L.popup()
+    .setLatLng([19.072158, 72.854745])
+    .setContent("I am a standalone popup.")
+    .openOn(mymap);
+
+
+    function onMapClick(e) {
+    alert("You clicked the map at " + e.latlng);
+}
+
+mymap.on('click', onMapClick);
 
 
 </script>
